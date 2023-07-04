@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+  <h2 style="text-align: center;">SignIn/Signup</h2>
+  <form (ngSubmit)="logIn()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter email here" [(ngModel)]="userName" class="form-control" id="userId" name="userId">
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Enter Password here" [(ngModel)]="userPassword" class="form-control" id="password" name="password">
+    </mat-form-field>
+ 
+  <button type="submit" mat-raised-button color="primary" style="margin-left: 20px;margin-right: 10px;">Login</button>
+ Already a user? then click on Signup<button (click)="signUpPage()" mat-raised-button color="primary" style="margin-left: 20px;">Signup</button>
+</form></mat-card>

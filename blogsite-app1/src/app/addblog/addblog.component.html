@@ -1,0 +1,24 @@
+<h1 mat-dailog-title>Add Blog form</h1>
+
+<div mat-dialog-content>
+    <form [formGroup]="blogForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Blog Name</mat-label>
+      <input formControlName="blogName" matInput placeholder="blogName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input formControlName="category" matInput placeholder="category">
+    </mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Article</mat-label>
+  <input formControlName="article" matInput placeholder="article">
+</mat-form-field>
+ </form>
+ <div mat-dialog-action [align]="'end'">
+  <div class="example-button-row">
+  <button mat-raised-button color="warn" (click)="addBlog()">Save</button>
+   <button style="margin-left:8px" mat-raised-button color="warn" mat-dialog-close>Exit</button>
+  </div>
+</div>
+    </div>
