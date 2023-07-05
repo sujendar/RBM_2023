@@ -27,9 +27,17 @@ export class LoginComponent {
           alert("INVALID CRDENTAILS");
         }else{
           alert("login successfully")
+          console.log('jwt_token'+ JSON.stringify(this.userName));
         this.userDetails = resp;
         localStorage.setItem('userDetails', JSON.stringify(this.userDetails.userId));
         localStorage.setItem('userName', JSON.stringify(this.userDetails.userName));
+         this.service.jwtauthenticationCheck(this.userName,this.userPassword).subscribe(data => {
+          alert(data.token);
+          localStorage.setItem('jwt_token', data.token);
+          //console.log('jwt_token'+ JSON.stringify(data));
+         
+        }, error=>alert("Please enterd correct username and password in authentication"),)
+        //console.log('jwt_token'+ localStorage.getItem('jwt_token'));
         this._route.navigate(['/home']);
         }
       }, error=>alert("Please enterd correct username and password"),

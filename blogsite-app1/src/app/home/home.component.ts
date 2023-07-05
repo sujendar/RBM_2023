@@ -30,7 +30,6 @@ export class HomeComponent {
     @Optional() private dialog:MatDialog) { }
    
   ngOnInit(): void {
-   // this.home();
     this.getblogdetails();
   }
 
