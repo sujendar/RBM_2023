@@ -57,6 +57,7 @@ export class HomeComponent {
     this._service.deletebyblogname(row).subscribe(
       {
         next:(res)=>{
+          alert(res.errormessage);
          this.getblogdetails();
         },error:(err)=> { 
           alert("Exception occurred 1")}

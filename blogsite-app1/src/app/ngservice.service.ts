@@ -13,6 +13,7 @@ export class NgserviceService {
   jwtToken=new Jwttoken();
   constructor(private _http:HttpClient) { }
   fetchUserDetailsFromRemote(userName: String,userPassword:string): Observable<any>{
+    //localStorage.clear();
     return this._http.post<any>('http://localhost:5000/api/v1/blogsite/signin/'+userName+'/'+userPassword,null);
   }
   jwtauthenticationCheck(userName: String,userPassword:string): Observable<any>{
@@ -23,6 +24,7 @@ export class NgserviceService {
   }
   homepage(): Observable<any>{
     let Token=localStorage.getItem('jwt_token');
+   // alert(Token);
     const httpOptions = {
       headers: new HttpHeaders({ 
                 'Access-Control-Allow-Origin': '*',
