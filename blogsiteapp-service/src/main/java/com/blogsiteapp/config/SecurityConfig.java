@@ -13,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import com.blogsiteapp.service.CustomUserDetailsService;
 import com.blogsiteapp.service.JwtFilter;
@@ -38,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
+   
 
     @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
     @Override
@@ -48,13 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().antMatchers("/api/v1/blogsite/user/register")
-                .permitAll().antMatchers("/api/v1/blogsite/authenticate").permitAll()
+                .permitAll().antMatchers("/api/v1/blogsite/authenticate/*/*").permitAll()
                 .antMatchers("/api/v1/blogsite/signin/*/*").permitAll()
-                .antMatchers("/swagger-ui.html*").permitAll()
+                .antMatchers("/swagger-ui/*").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/v2/**").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);;
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.cors();
     }
 }
 

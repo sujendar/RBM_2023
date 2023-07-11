@@ -18,12 +18,12 @@ public class BlogDetails {
 	@Id
 	@GeneratedValue
 	private Long blogId;
-	@Size(min = 20, message = "blogName too short.")
+	@Size(min = 10, message = "blogName too short.")
 	private String  blogName;
-	@Size(min = 20, message = "category too short.")
+	@Size(min = 10, message = "category too short.")
 	private String category;	
 	private Date publisheddate;
-	@Size(min = 300, message = "article too short.")
+	@Size(min = 30, message = "article too short.")
 	@Column(length = 4000)
 	private String  article;
 	private Long userId;

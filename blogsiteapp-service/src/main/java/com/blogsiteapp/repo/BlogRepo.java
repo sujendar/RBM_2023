@@ -19,5 +19,7 @@ public interface BlogRepo extends JpaRepository<BlogDetails, Long>{
 	BlogDetails findByBlogName(String blogname);
     @Query("select b from BlogDetails b where b.category=?1 and b.publisheddate between ?2 and ?3")
 	List<BlogDetails> getAllByCategoryAndDuration(String category, Date date, Date date2);
+
+	BlogDetails findByBlogNameAndUserId(String blogname, Long userId);
 	
 }

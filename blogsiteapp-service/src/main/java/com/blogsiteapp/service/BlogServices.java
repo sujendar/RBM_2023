@@ -47,7 +47,7 @@ public class BlogServices {
 
 	public List<BlogDetails> getAllBlog() {
 		Authentication token=SecurityContextHolder.getContext().getAuthentication();
-		log.info("in  createBlog name :"+token.getName());
+		log.info("in  getallBlog name :"+token.getName());
 		User user=userRepo.findByUserName(token.getName());
 		return blogRepo.findByUserId(user.getUserId());
 	}
@@ -58,11 +58,20 @@ public class BlogServices {
 	}
 
 	public ResponseParms deleteByBlogname(String blogname) {
-		BlogDetails blog=blogRepo.findByBlogName(blogname);
-		blogRepo.delete(blog);
+		Authentication token=SecurityContextHolder.getContext().getAuthentication();
+		log.info("in  delete Blog name :"+token.getName());
+		User user=userRepo.findByUserName(token.getName());
+		BlogDetails blog=blogRepo.findByBlogNameAndUserId(blogname,user.getUserId());
 		ResponseParms params=new ResponseParms();
+		if(blog!=null) {
+		blogRepo.delete(blog);
+		
 	  	  params.setErrorcode(UserServiceConstants.SUCCESS_CODE.toString());
 	  	  params.setErrormessage(UserServiceConstants.SUCCESS_DEL_MSG.toString());
+		}else {
+		  	  params.setErrorcode(UserServiceConstants.SUCCESS_CODE.toString());
+		  	  params.setErrormessage("You are not authorised to delete this blog");
+		}
 			return params;
 	}
 

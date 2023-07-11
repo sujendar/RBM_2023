@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blogsiteapp.entity.AuthRequest;
+import com.blogsiteapp.entity.AuthResponse;
 import com.blogsiteapp.entity.User;
 import com.blogsiteapp.service.UserService;
 import com.blogsiteapp.utill.JwtUtil;
@@ -63,6 +64,19 @@ public class UserController {
 		}
 	        return "Welcome to javatechie !!";
 	    }
+	   @PostMapping("/authenticate/{username}/{password}")
+	    public AuthResponse generateToken(@PathVariable String username,@PathVariable String password) throws Exception {
+	        try {
+	            authenticationManager.authenticate(
+	                    new UsernamePasswordAuthenticationToken(username, password)
+	            );
+	        } catch (Exception ex) {
+	            throw new Exception("inavalid username/password");
+	        }
+	        AuthResponse response=new AuthResponse();
+	        response.setToken(jwtUtil.generateToken(username));
+	        return response;
+	    }
 	   @PostMapping("/authenticate")
 	    public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
 	        try {
@@ -74,5 +88,4 @@ public class UserController {
 	        }
 	        return jwtUtil.generateToken(authRequest.getUserName());
 	    }
-	 
 }
