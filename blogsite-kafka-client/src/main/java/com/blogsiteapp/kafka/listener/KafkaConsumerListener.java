@@ -2,8 +2,6 @@ package com.blogsiteapp.kafka.listener;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -25,7 +23,7 @@ public class KafkaConsumerListener {
     
  
     
-    @Transactional
+   // @Transactional
     private void saveCourseEntity(BlogDetails entity) {
     	Optional<BlogDetails> entityOpt = blogRepository.findById(entity.getBlogId());
     	BlogDetails courseEntityToPersist=null;
