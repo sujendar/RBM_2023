@@ -1,0 +1,42 @@
+[
+  {
+      "blogId": 26,
+      "blogName": "Hubspot_marketing",
+      "category": "Digital Marketing",
+      "publisheddate": "2023-07-07T06:46:24.000+00:00",
+      "article": "SaaS powerhouse, Hubspot, has one of the most trafficked blogs, not only in its niche but across various niches.  Founded in 2005 by Brian Halligan and Dharmesh Shah, the company’s core focus has always been helping businesses nail their inbound marketing.",
+      "userId": 1
+  },
+  {
+      "blogId": 35,
+      "blogName": "Labnol.Org",
+      "category": "Digital Content",
+      "publisheddate": "2023-07-14T02:52:49.000+00:00",
+      "article": "This famous blog was started by Amit Agarwal with a vision to spread the culture of blogging in India. Amit quit his job to become the first professional blogger from India.  Amit holds a degree from IIT which is considered as the highest B.Tech degree in India. He is also listed in the Adsense success story by Google. Amit basically writes about How-to Guides and gives solutions for issues related to technology.",
+      "userId": 1
+  },
+  {
+      "blogId": 37,
+      "blogName": "Money Excel Blog",
+      "category": "financial content",
+      "publisheddate": "2023-07-14T02:57:03.000+00:00",
+      "article": "Through Money Excel, Shitanshu educates Indian consumers on the importance of financial planning and helps them excel in managing various financial products that involve personal finance, real estate, insurance, stock market, and more.",
+      "userId": 1
+  },
+  {
+      "blogId": 39,
+      "blogName": "Blog Details Blog1",
+      "category": "Digital Marketing",
+      "publisheddate": "2023-07-14T03:01:03.000+00:00",
+      "article": "Basavaraj Tonagatti manages Basunivesh, one of the best financial blogs in India. The blogs cover various topics on the basic problems people face in today’s financial world about insurance, investment, tax planning and more.",
+      "userId": 1
+  },
+  {
+      "blogId": 40,
+      "blogName": "Blog details blog2",
+      "category": "blog2 category",
+      "publisheddate": "2023-07-14T04:42:51.000+00:00",
+      "article": "article aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "userId": 1
+  }
+]
