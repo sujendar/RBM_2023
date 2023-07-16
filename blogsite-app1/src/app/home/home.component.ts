@@ -17,6 +17,7 @@ import { AddblogComponent } from '../addblog/addblog.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  userName!:string;
   searchtext : String ="";
   book: Array<Blogdetails> = [];
   b1:Blogdetails=new Blogdetails();
@@ -31,6 +32,7 @@ export class HomeComponent {
    
   ngOnInit(): void {
     this.getblogdetails();
+    this.userName =JSON.parse(localStorage.getItem('userName')!);
   }
 
   home(){
